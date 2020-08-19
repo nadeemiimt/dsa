@@ -32,6 +32,23 @@ public class LongestCommonSubsequence {
                 System.out.println("common sub sequence 1 is " + maxStr);
                 System.out.println("common sub sequence 2 is " + maxStr);
                 return;
+            case 5:
+                a = "AGGTAB";
+                b = "GXTXAYB";    // "AGGXTXAYB"
+                maxLength = lengthOfShortestCommonSuperSequenceViaTopDown(a, b, a.length(), b.length());
+                System.out.println("common super sequence length is " + maxLength);
+                return;
+            case 6:
+                a = "heap";
+                b = "pea";    // "AGGXTXAYB"
+                maxStr = minNumberOfInsertionAndDeletionRequiredToConvertOneToOtherStringViaTopDown(a, b, a.length(), b.length());
+                System.out.println(maxStr);
+                return;
+            case 7:
+                a = "agbcba";// "abcba"
+                maxLength = longestPalindromicSubsequenceViaTopDown(a, a.length());
+                System.out.println("Longest palindromic subsequence is " + maxLength);
+                return;
             default:break;
         }
 
@@ -188,5 +205,26 @@ public class LongestCommonSubsequence {
             result = new StringBuilder(result).reverse().toString();
         }
         return result;
+    }
+
+    public static int lengthOfShortestCommonSuperSequenceViaTopDown(String a, String b, int l1, int l2){
+        return l1 + l2 - lcsViaTopDown(a, b, l1, l2);
+    }
+
+    public static String minNumberOfInsertionAndDeletionRequiredToConvertOneToOtherStringViaTopDown(String a, String b, int l1, int l2){
+        int lcs = lcsViaTopDown(a, b, l1, l2);
+
+        int insertion = l2 - lcs;
+        int deletion = l1 - lcs;
+
+        return "insertion count is " + insertion + " and deletion count is " + deletion;
+    }
+
+    public static int longestPalindromicSubsequenceViaTopDown(String a, int l1){
+        String b = new StringBuilder(a).reverse().toString();
+        int l2 = b.length();
+        int lcs = lcsViaTopDown(a, b, l1, l2);
+
+        return  lcs;
     }
 }
