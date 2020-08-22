@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.dp.LongestCommonSubsequence;
-import com.company.dp.SubSetProblems;
-import com.company.dp.UnboundedKnapsack;
-import com.company.dp.ZeroOneKnapsack;
+import com.company.dp.*;
 
 public class Main {
 
@@ -23,9 +20,14 @@ public class Main {
             UnboundedKnapsack.call(i);
         }
 
-        for (int i =0; i<=7; i++)
+        for (int i =0; i<=12; i++)
         {
             LongestCommonSubsequence.call(i);
+        }
+
+        for (int i =0; i<=4; i++)
+        {
+            MatrixChainMultiplication.call(i);
         }
     }
 }
